@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+	--bg: #563434ba  ;
+	--bg-dark: #062544 ;
+	--span: #d28e22;
+	--color: #fff;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--color);
+}
+
+/* header */
+header {
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+    background-color:var(--bg-dark);
+    width: 100%;
+    position: fixed;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px 40px;
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--span);
+}
+
+.links {
+    display: flex;
+    text-align: center;
+    margin: 30px 100px;
+}
+
+.links a {
+    text-decoration: none;
+    padding: 0 40px;
+    color: var(--color);
+}
+
+.links a:hover {
+    color: var(--span);
+    cursor: pointer;
+    font-style: poppins;
+}
+
+/* main */
+.beranda {
+    background-color: var(--bg);
+    width: 100%;
+    text-align: center;
+    padding: 100px 0;
+}
+
+
+main {
+    text-align: center;
+    padding: 120px 0;
+}
+
+main img {
+    height: 200px;
+    border-radius: 100px;
+    border: 3px solid var(--color);
+}
+
+main h2 span:after {
+    content: "";
+    animation: gerak infinite 8s ease;
+    transform: translateY(-50%);
+    color: var(--span);
+    font-size: 50px;
+}
+
+@keyframes gerak {
+    0% {
+        content: "Selamat datang";
+    }
+    50% {
+        content: "Bergabunglah Dikomunitas WarThunder Indonesia";
+    }
+    100% {
+        content: "Russian Bias!!";
+    }
+}
+
+main a button {
+    width: 400px;
+    padding: 10px;
+    border: 2px solid var(--bg);
+    border-radius: 50px;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+main a button:hover {
+    color: var(--color);
+    background-color: var(--bg-dark);
+    border: 2px solid var(--color);
+    cursor: pointer;
+}
+
+
+
+/* kontak */
+.kontak {
+    margin: 100px 0 50px;
+    padding: 100px 0 50px;
+    text-align: center;
+    color: var(--bg);
+}
+
+.kontak h1 {
+    font-size: 40px;
+}
+
+.kontak img {
+    width: 100px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.kontak p {
+    font-size: 30px;
+}
+
+/* footer */
+.footer {
+    background-color: var(--bg-dark);
+    text-align: center;
+    font-size: 15px;
+}
