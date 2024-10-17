@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task List</title>
+  <link rel="stylesheet" href="index.css">
+ 
+<div class="container">
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <div id="taskList">
+    <!-- Task items will be added here -->
+  </div>
+</div>
+
+<script>
+function addTask() {
+  var taskInput = document.getElementById("taskInput");
+  var taskText = taskInput.value.trim();
+  
+  if (taskText !== "") {
+    var taskItem = document.createElement("div");
+    taskItem.classList.add("item");
+
+    var taskContent = document.createElement("span");
+    taskContent.textContent = taskText;
+
+    var deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.innerHTML = "&#x2716;"; // X symbol
+    deleteBtn.onclick = function() {
+      taskItem.remove();
+    };
+
+    var editBtn = document.createElement("button");
+    editBtn.classList.add("edit-btn");
+    editBtn.innerHTML = "Edit";
+    editBtn.onclick = function() {
+      editTask(taskContent);
+    };
+
+    taskItem.appendChild(taskContent);
+    taskItem.appendChild(editBtn);
+    taskItem.appendChild(deleteBtn);
+
+    document.getElementById("taskList").appendChild(taskItem);
+
+    taskInput.value = ""; // Clear input
+  }
+}
+
+function editTask(taskContent) {
+  var newTaskText = prompt("Edit your task", taskContent.textContent);
+  if (newTaskText !== null && newTaskText.trim() !== "") {
+    taskContent.textContent = newTaskText;
+  }
+}
+</script>
+
+</body>
+</html>
