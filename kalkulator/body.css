@@ -1,0 +1,66 @@
+body {
+    background-color: #e0dfff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.calculator {
+    background-color: #212529;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Lebar tetap untuk kalkulator */
+}
+
+.display {
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+    font-size: 32px; /* Ukuran font ditingkatkan untuk keterbacaan yang lebih baik */
+    border-radius: 10px;
+    text-align: right;
+    margin-bottom: 15px;
+    overflow: hidden; /* Mencegah overflow teks */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* Jarak antar tombol ditingkatkan */
+}
+
+button {
+    background-color: #5865f2;
+    color: white;
+    border: none;
+    padding: 20px; /* Padding ditingkatkan untuk tombol yang lebih besar */
+    font-size: 24px; /* Ukuran font untuk tombol ditingkatkan */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s; /* Transisi untuk transformasi */
+}
+
+button:hover {
+    background-color: #090d41;
+    transform: scale(1.05); /* Memperbesar tombol sedikit saat hover */
+}
+
+.operator {
+    background-color: #17c45f;
+}
+
+.number {
+    background-color: #9f2d11;
+}
+
+.operator:hover {
+    background-color: #14a250; /* Hijau lebih gelap saat hover */
+}
+
+.number:hover {
+    background-color: #851c0c; /* Merah lebih gelap saat hover */
+}

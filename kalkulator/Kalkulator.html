@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            background-color: #e0dfff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .calculator {
+            background-color: #010d1a;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 320px; /* Lebar tetap untuk kalkulator */
+        }
+
+        .display {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            font-size: 32px; /* Ukuran font ditingkatkan untuk keterbacaan yang lebih baik */
+            border-radius: 10px;
+            text-align: right;
+            margin-bottom: 15px;
+            overflow: hidden; /* Mencegah overflow teks */
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px; /* Jarak antar tombol ditingkatkan */
+        }
+
+        button {
+            background-color: #5865f2;
+            color: white;
+            border: none;
+            padding: 20px; /* Padding ditingkatkan untuk tombol yang lebih besar */
+            font-size: 24px; /* Ukuran font untuk tombol ditingkatkan */
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s; /* Transisi untuk transformasi */
+        }
+
+        button:hover {
+            background-color: #090d41;
+            transform: scale(1.05); /* Memperbesar tombol sedikit saat hover */
+        }
+
+        .operator {
+            background-color: #0a4336;
+        }
+
+        .number {
+            background-color: #9f2d11;
+        }
+
+        .operator:hover {
+            background-color: #14a250; /* Hijau lebih gelap saat hover */
+        }
+
+        .number:hover {
+            background-color: #851c0c; /* Merah lebih gelap saat hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="operator" onclick="clearDisplay()">AC</button>
+            <button class="operator" onclick="toggleSign()">+/-</button>
+            <button class="operator" onclick="appendToDisplay('%')">%</button>
+            <button class="operator" onclick="appendToDisplay('/')">÷</button>
+            <button class="number" onclick="appendToDisplay('7')">7</button>
+            <button class="number" onclick="appendToDisplay('8')">8</button>
+            <button class="number" onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('*')">X</button>
+            <button class="number" onclick="appendToDisplay('4')">4</button>
+            <button class="number" onclick="appendToDisplay('5')">5</button>
+            <button class="number" onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+            <button class="number" onclick="appendToDisplay('1')">1</button>
+            <button class="number" onclick="appendToDisplay('2')">2</button>
+            <button class="number" onclick="appendToDisplay('3')">3</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <button class="number" onclick="appendToDisplay('00')">00</button>
+            <button class="number" onclick="appendToDisplay('0')">0</button>
+            <button class="number" onclick="appendToDisplay('.')">.</button>
+            <button class="operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function clearDisplay() {
+            display.innerText = '0';
+        }
+
+        function toggleSign() {
+            if (display.innerText !== '0') {
+                display.innerText = display.innerText.startsWith('-') ?
+                    display.innerText.slice(1) : '-' + display.innerText;
+            }
+        }
+
+        function appendToDisplay(value) {
+            if (display.innerText === '0' || display.innerText === 'Invalid') {
+                display.innerText = value;
+            } else {
+                display.innerText += value;
+            }
+        }
+
+        function calculate() {
+            try {
+                display.innerText = eval(display.innerText.replace(/X/g, '*')); // Ganti X dengan * untuk evaluasi
+            } catch {
+                display.innerText = 'Invalid';
+            }
+        }
+    </script>
+</body>
+</html>
